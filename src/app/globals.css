@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  .dark {
+    /* Pitch-Black Storm Palette (#030303 background) */
+    --background: 0 0% 1.2%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 6.5%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 6.5%;
+    --muted-foreground: 240 4% 56%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 11%;
+    --input: 0 0% 11%;
+    --ring: 0 0% 85%;
+    --radius: 0.75rem;
+    --brand: #f4f4f5;
+
+    /* Dynamic lightning intensity [0.0 to 1.0] */
+    --lightning-flash: 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #030303;
+    color: #f4f4f5;
+  }
+
+  body {
+    background-color: #030303;
+    color: #f4f4f5;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), system-ui, sans-serif;
+  }
+}
+
+/* Storm Lightning Environmental Highlights */
+.lightning-active {
+  filter: brightness(calc(1 + var(--lightning-flash, 0) * 0.45)) contrast(calc(1 + var(--lightning-flash, 0) * 0.15));
+}
+
+/* Custom sleek dark scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f1f23;
+  border-radius: 9999px;
+  border: 1px solid #2e2e34;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #383842;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
